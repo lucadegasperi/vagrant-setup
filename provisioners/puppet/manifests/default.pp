@@ -27,6 +27,8 @@ php::module { 'memcache': }
 
 php::module { 'cli': }
 
+#php::module { 'xdebug': }
+
 php::module { 'apc':
   module_prefix => 'php-',
 }
