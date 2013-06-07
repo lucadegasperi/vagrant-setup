@@ -1,9 +1,14 @@
+stage { 'first':
+  before => Stage['main'],
+}
+
 #
 # APT
 #
 
 class { 'apt':
   force_aptget_update => true,
+  stage => first,
 }
 
 #
@@ -45,8 +50,10 @@ php::module { 'apc':
 # Nginx
 #
 
+class { 'nginx': }
+
 nginx::vhost { 'vagrant-setup.local':
-  docroot => '/vagrant',
+  docroot => '/vagrant/public',
   serveraliases => 'vagrant-setup.local',
   template => '/vagrant/vagrant/templates/vhost.conf.erb',
 }
@@ -80,5 +87,5 @@ class { 'redis': }
 #
 
 class { 'apache':
-  disable => true
+  disable => true,
 }
