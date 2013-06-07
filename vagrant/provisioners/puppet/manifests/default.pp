@@ -12,7 +12,6 @@ class { 'apt':
 
 class { 'php':
   service => 'nginx',
-  service_autorestart => true,
 }
 
 
@@ -66,7 +65,7 @@ mysql::grant { 'development-grant':
   mysql_password    => 'development',
   mysql_db          => 'development',
   mysql_user        => 'development',
-  mysql_host        => '127.0.0.1',
+  mysql_host        => 'localhost',
 }
 
 
