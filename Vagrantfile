@@ -32,6 +32,7 @@ Vagrant.configure("2") do |config|
 
     puppet.manifests_path = "vagrant/provisioners/puppet/manifests"
     puppet.manifest_file  = "default.pp"
+    puppet.module_path    = "vagrant/provisioners/puppet/modules"
 
     #puppet.options = [
     #  '--verbose',
