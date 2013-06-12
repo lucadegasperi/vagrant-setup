@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+#require "vagrant/commands/artisan.rb"
+#require "vagrant/commands/composer.rb"
+
 Vagrant.configure("2") do |config|
   
   # All Vagrant configuration is done here. The most common configuration

@@ -1,32 +1,42 @@
-stage { 'first':
-  before => Stage['main'],
-}
-
 #
 # APT
 #
 
 class { 'apt':
   force_aptget_update => true,
-  stage => first,
+}
+
+#
+# Apache
+#
+
+# class { 'apache': }
+
+apache::module { 'php5':
+  install_package => true,
+}
+
+apache::vhost { 'vagrant-setup.local':
+  docroot             => '/vagrant/public',
+  server_name         => 'vagrant-setup.local',
+  serveraliases       => 'vagrant-setup.local',
 }
 
 #
 # PHP
 #
 
-class { 'php':
-  service => 'nginx',
-}
+class { 'php54': }
 
+class { 'php':
+  before => Apache::Module['php5'],
+}
 
 #
 # PHP Modules
 #
 
 php::module { 'gd': }
-
-php::module { 'fpm': }
 
 php::module { 'mysql': }
 
@@ -45,19 +55,6 @@ php::module { 'cli': }
 php::module { 'apc':
   module_prefix => 'php-',
 }
-
-#
-# Nginx
-#
-
-class { 'nginx': }
-
-nginx::vhost { 'vagrant-setup.local':
-  docroot => '/vagrant/public',
-  serveraliases => 'vagrant-setup.local',
-  template => '/vagrant/vagrant/templates/vhost.conf.erb',
-}
-
 
 #
 # MySQL
@@ -83,9 +80,19 @@ mysql::grant { 'development-grant':
 class { 'redis': }
 
 #
-# Stop apache from running since we are using nginx
+# .bashrc
 #
 
-class { 'apache':
-  disable => true,
+file { '/home/vagrant/.bashrc':
+  ensure => 'present',
+  content => 'cd /vagrant',
+}
+
+#
+# Laravel
+#
+
+file { '/vagrant/app/storage':
+  ensure => 'directory',
+  mode => 0777,
 }
