@@ -92,7 +92,4 @@ file { '/home/vagrant/.bashrc':
 # Laravel
 #
 
-file { '/vagrant/app/storage':
-  ensure => 'directory',
-  mode => 0777,
-}
+class { 'laravel': }
