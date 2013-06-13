@@ -93,3 +93,12 @@ file { '/home/vagrant/.bashrc':
 #
 
 class { 'laravel': }
+
+#
+#  you always need some ruby
+#
+
+class { 'ruby':
+  version             => '1.9.3-p392',
+  compile_from_source => true,
+}
