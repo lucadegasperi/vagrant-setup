@@ -11,7 +11,9 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, :ip => "172.16.0.2"
 
   # set the right owner and permissions for the storage folders
-  config.vm.synced_folder "app/storage", "/vagrant/app/storage", :owner => 'www-data', :group => 'www-data', :mount_options => ["dmode=777", "fmode=777"]
+  # config.vm.synced_folder "app/storage", "/vagrant/app/storage", :owner => 'www-data', :group => 'www-data', :mount_options => ["dmode=777", "fmode=777"]
+
+  config.librarian_puppet.puppetfile_dir = "vagrant/provisioners/puppet"
 
   # set the timezone
   config.vm.provision :shell, :inline => "echo \"Europe/Rome\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"

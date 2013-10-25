@@ -1,3 +1,8 @@
+Exec 
+{
+  path => ["/usr/bin", "/bin", "/usr/sbin", "/sbin", "/usr/local/bin", "/usr/local/sbin"]
+}
+
 #
 # APT
 #
@@ -7,10 +12,22 @@ class { 'apt':
 }
 
 #
+# git
+#
+
+class { 'git': }
+
+#
+# Curl
+#
+
+class { 'curl': }
+
+#
 # Apache
 #
 
-# class { 'apache': }
+class { 'apache': }
 
 apache::module { 'php5':
   install_package => true,
@@ -20,13 +37,17 @@ apache::vhost { 'vagrant-setup.local':
   docroot             => '/vagrant/public',
   server_name         => 'vagrant-setup.local',
   serveraliases       => 'vagrant-setup.local',
+  directory => '/vagrant/public',
+  directory_allow_override => 'All',
+  directory_options => 'Indexes FollowSymLinks MultiViews',
+  template => '/vagrant/vagrant/provisioners/puppet/templates/vhost.conf.erb',
 }
 
 #
 # PHP
 #
 
-class { 'php54': }
+class { 'php55': }
 
 class { 'php':
   before => Apache::Module['php5'],
@@ -56,6 +77,8 @@ php::module { 'apc':
   module_prefix => 'php-',
 }
 
+class { 'composer': }
+
 #
 # MySQL
 #
@@ -80,6 +103,12 @@ mysql::grant { 'development-grant':
 class { 'redis': }
 
 #
+# Memcached
+#
+
+ class { 'memcached': }
+
+#
 # .bashrc
 #
 
@@ -89,16 +118,7 @@ file { '/home/vagrant/.bashrc':
 }
 
 #
-# Laravel
+#  you always need some ruby :(
 #
 
-class { 'laravel': }
-
-#
-#  you always need some ruby
-#
-
-class { 'ruby':
-  version             => '1.9.3-p392',
-  compile_from_source => true,
-}
+class { 'ruby': }

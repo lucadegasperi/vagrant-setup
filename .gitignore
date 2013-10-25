@@ -1,3 +1,4 @@
 /.vagrant
 .DS_Store
 /vendor/
+/vagrant/provisioners/puppet/modules/

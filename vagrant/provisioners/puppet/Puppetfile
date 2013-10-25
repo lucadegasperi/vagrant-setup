@@ -1,0 +1,53 @@
+forge "http://forge.puppetlabs.com"
+
+mod "stdlib",
+  :git => "git://github.com/puppetlabs/puppetlabs-stdlib.git",
+  :ref => '4.1.0'
+
+mod "apt",
+  :git => "git://github.com/example42/puppet-apt.git",
+  :ref => "v0.1.12"
+
+mod "apache",
+  :git => "git://github.com/example42/puppet-apache.git",
+  :ref => "v2.1.2"
+
+mod "php55",
+  :git => "git://github.com/lucadegasperi/puppet-php55.git",
+  :ref => "b3c901804cb27343834099d3e35b77ed700564b4"
+
+mod "php",
+  :git => "git://github.com/example42/puppet-php.git",
+  :ref => "v2.0.14"
+
+mod "mysql",
+  :git => "git://github.com/example42/puppet-mysql.git",
+  :ref => "5f50eeafc3c78651ca02b3ccfe9b2688b4368c44"
+
+mod "redis",
+  :git => "git://github.com/example42/puppet-redis.git",
+  :ref => "v2.0.7"
+
+mod "puppi",
+  :git => "git://github.com/example42/puppi.git",
+  :ref => "v2.1.3"
+
+mod "git",
+  :git => "git://github.com/example42/puppet-git.git",
+  :ref => "v2.0.13"
+
+mod "curl",
+  :git => "git://github.com/lucadegasperi/puppet-curl.git",
+  :ref => "cc24ae311a40bae2aee095d580f02e7e5ceaedc6"
+
+mod "ruby",
+  :git => "git://github.com/example42/puppet-ruby.git",
+  :ref => "v2.0.12"
+
+mod "composer",
+  :git => "git://github.com/lucadegasperi/puppet-composer.git",
+  :ref => "36f4276a0cbd966246aeb6e97cf1707d73563ab1"
+
+mod "ruby",
+  :git => "git://github.com/example42/puppet-memcached.git",
+  :ref => "79478474f1a05eaf722d659e99e45cf0d216b0f9"
