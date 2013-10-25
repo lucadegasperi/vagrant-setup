@@ -102,11 +102,6 @@ mysql::grant { 'development-grant':
 
 class { 'redis': }
 
-#
-# Memcached
-#
-
- class { 'memcached': }
 
 #
 # .bashrc

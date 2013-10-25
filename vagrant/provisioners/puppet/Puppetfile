@@ -47,7 +47,3 @@ mod "ruby",
 mod "composer",
   :git => "git://github.com/lucadegasperi/puppet-composer.git",
   :ref => "36f4276a0cbd966246aeb6e97cf1707d73563ab1"
-
-mod "ruby",
-  :git => "git://github.com/example42/puppet-memcached.git",
-  :ref => "79478474f1a05eaf722d659e99e45cf0d216b0f9"
