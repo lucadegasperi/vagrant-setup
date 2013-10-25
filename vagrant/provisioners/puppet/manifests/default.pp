@@ -104,6 +104,13 @@ class { 'redis': }
 
 
 #
+# Beanstalkd
+#
+
+class { 'beanstalkd': }
+
+
+#
 # .bashrc
 #
 

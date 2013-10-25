@@ -47,3 +47,7 @@ mod "ruby",
 mod "composer",
   :git => "git://github.com/lucadegasperi/puppet-composer.git",
   :ref => "36f4276a0cbd966246aeb6e97cf1707d73563ab1"
+
+mod "beanstalkd",
+  :git => "git://github.com/lucadegasperi/puppet-beanstalkd.git",
+  :ref => "c36554e8b09af39f278d547544f95bf688a440c1"
