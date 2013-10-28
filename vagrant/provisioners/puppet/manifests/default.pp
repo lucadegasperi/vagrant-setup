@@ -69,6 +69,8 @@ php::module { 'curl': }
 
 php::module { 'memcache': }
 
+php::module { 'memcached': }
+
 php::module { 'cli': }
 
 php::module { 'xdebug': }
@@ -94,6 +96,12 @@ mysql::grant { 'development-grant':
   mysql_user        => 'development',
   mysql_host        => 'localhost',
 }
+
+#
+# Memcached
+#
+
+class { 'memcached': }
 
 
 #
